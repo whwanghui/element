@@ -1,16 +1,23 @@
 <template>
-  <table @click="handleYearTableClick" @mousemove="handleMouseMove" class="el-year-table">
+  <table @click="handleYearTableClick"
+    @mousemove="handleMouseMove"
+    class="el-year-table">
     <tbody>
-    <tr v-for="(row, key) in rows" :key="key">
-      <template v-for="(cell, key) in row">
-        <td v-if="!cell" :key="key"></td>
-        <td v-else class="available" :key="key" :class="getCellStyle(cell)">
-          <div>
-            <a class="cell">{{ cell.text }}</a>
-          </div>
-        </td>
-      </template>
-    </tr>
+      <tr v-for="(row, key) in rows"
+        :key="key">
+        <template v-for="(cell, key) in row">
+          <td v-if="!cell"
+            :key="key"></td>
+          <td v-else
+            class="available"
+            :key="key"
+            :class="getCellStyle(cell)">
+            <div>
+              <a class="cell">{{ cell.text }}</a>
+            </div>
+          </td>
+        </template>
+      </tr>
     </tbody>
   </table>
 </template>
@@ -221,7 +228,7 @@
       handleYearTableClick(event) {
         const target = event.target;
         if (target.tagName === 'A') {
-          if (hasClass(target.parentNode, 'disabled')) return;
+          if (hasClass(target.parentNode.parentNode, 'disabled')) return;
           const year = target.textContent || target.innerText;
           if (this.selectionMode === 'range') {
             const newDate = new Date(year, 0, 1);

@@ -9,6 +9,7 @@ yarn-debug.log.*
 yarn-error.log.*
 lerna-debug.log.*
 lib
+.prettierrc
 .idea
 .vscode
 examples/element-ui
